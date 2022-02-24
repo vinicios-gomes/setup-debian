@@ -5,7 +5,7 @@ echo "Update System"
 sudo apt-get update -y && sudo apt-get upgrade -y
 
 echo "Installing curl git and wget"
-sudo apt install curl git wget -y
+sudo apt install curl unzip wget -y
 echo "Done"
 
 echo "Download source of the vscode"
@@ -73,3 +73,11 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
 ' >> ~/.zshrc
 echo 'Done'
+
+echo "Download Fonts"
+
+wget 'https://download-cdn.jetbrains.com/fonts/JetBrainsMono-2.242.zip?_gl=1*gueijs*_ga*MTE4NjkwOTAzNi4xNjQ1Njk5ODk1*_ga_V0XZL7QHEB*MTY0NTY5OTg5NC4xLjAuMTY0NTY5OTg5NC4w&_ga=2.62367468.1582626758.1645699895-1186909036.1645699895'
+unzip *.zip
+sudo cp fonts/ttf/*.ttf ~/.local/share/fonts/
+
+echo "Done"
