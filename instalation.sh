@@ -1,5 +1,4 @@
-!/bin/bash
-
+# !/bin/bash
 
 echo "Update System"
 
@@ -63,3 +62,13 @@ SPACESHIP_CHAR_SYMBOL="❯"
 SPACESHIP_CHAR_SUFFIX=" "' >> ~/.zshrc
 
 sed -i 's/plugins=(git)/plugins=(git nvm)/g' ~/.zshrc
+
+echo "installing plugins for zsh"
+
+sh -c "$(curl -fsSL https://git.io/zinit-install)"
+
+echo '
+zinit light zdharma-continuum/fast-syntax-highlighting
+zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-completions
+' >> ~/.zshrc
