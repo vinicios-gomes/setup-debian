@@ -10,11 +10,11 @@ sudo update-alternatives --config x-terminal-emulator
 echo "Done"
 
 echo "Download source of the vscode"
-wget 'https://az764295.vo.msecnd.net/stable/f80445acd5a3dadef24aa209168452a3d97cc326/code_1.64.2-1644445741_amd64.deb'
+wget 'https://az764295.vo.msecnd.net/stable/f80445acd5a3dadef24aa209168452a3d97cc326/code_1.64.2-1644445741_amd64.deb' -O code.deb
 echo "Done"
 
 echo "Installing vscode"
-sudo dpkg -i code_1.64.2-1644445741_amd64.deb -y
+sudo dpkg -i code.deb -y
 echo "Done"
 
 echo "Download and install nvm"
@@ -31,6 +31,8 @@ whereis zsh
 sudo usermod -s /usr/bin/zsh $(whoami)
 echo "Done"
 
+echo "# Installed by VGomes Scripts" >> ~/.zshrc
+
 echo "Instaling theme zsh Oh my zsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
@@ -41,9 +43,7 @@ sudo ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTO
 
 sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="spaceship"/g' ~/.zshrc
 
-
 echo '
-
 SPACESHIP_PROMPT_ORDER=(
   user          # Username section
   dir           # Current directory section
@@ -77,8 +77,8 @@ echo 'Done'
 
 echo "Download Fonts"
 
-wget 'https://download-cdn.jetbrains.com/fonts/JetBrainsMono-2.242.zip?_gl=1*gueijs*_ga*MTE4NjkwOTAzNi4xNjQ1Njk5ODk1*_ga_V0XZL7QHEB*MTY0NTY5OTg5NC4xLjAuMTY0NTY5OTg5NC4w&_ga=2.62367468.1582626758.1645699895-1186909036.1645699895'
-unzip *.zip
+wget -c 'https://download-cdn.jetbrains.com/fonts/JetBrainsMono-2.242.zip?_gl=1*gueijs*_ga*MTE4NjkwOTAzNi4xNjQ1Njk5ODk1*_ga_V0XZL7QHEB*MTY0NTY5OTg5NC4xLjAuMTY0NTY5OTg5NC4w&_ga=2.62367468.1582626758.1645699895-1186909036.1645699895' -O font.zip
+unzip font.zip
 sudo cp fonts/ttf/*.ttf ~/.local/share/fonts/
 
 echo "Done"
