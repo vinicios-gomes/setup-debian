@@ -5,7 +5,8 @@ echo "Update System"
 sudo apt-get update -y && sudo apt-get upgrade -y
 
 echo "Installing curl git and wget"
-sudo apt install curl unzip wget -y
+sudo apt install curl unzip wget terminator -y
+sudo update-alternatives --config x-terminal-emulator
 echo "Done"
 
 echo "Download source of the vscode"
