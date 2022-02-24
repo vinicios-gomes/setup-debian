@@ -4,7 +4,7 @@
   "description": "Setup for workspace in Debian",
   "main": "index.js",
   "scripts": {
-    "prepare": "husky install",
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "",
