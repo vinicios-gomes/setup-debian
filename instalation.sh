@@ -14,7 +14,7 @@ wget 'https://az764295.vo.msecnd.net/stable/f80445acd5a3dadef24aa209168452a3d97c
 echo "Done"
 
 echo "Installing vscode"
-sudo dpkg -i code.deb -y
+sudo dpkg -i code.deb
 echo "Done"
 
 echo "Download and install nvm"
@@ -23,6 +23,8 @@ echo "Done"
 
 echo "Installing docker and docker-compose "
 sudo apt install docker docker-compose -y
+sudo groupadd docker
+sudo usermod -aG docker $USER
 echo "Done"
 
 echo "Installing zsh"
@@ -86,3 +88,32 @@ echo "Done"
 echo "Update MaxWatcher file"
 echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 echo "done"
+
+echo "Install dbeaver"
+wget https://download.dbeaver.com/community/22.0.2/dbeaver-ce_22.0.2_amd64.deb
+sudo dpkg -i dbeaver*
+echo "Done"
+
+echo "Install Discord"
+wget https://dl.discordapp.net/apps/linux/0.0.17/discord-0.0.17.deb
+sudo dpkg -i discord*
+echo "Done"
+
+echo "Install postman"
+wget https://dl.pstmn.io/download/latest/linux64 postman.tar.gz
+tar -xzf postman*
+sudo mkdir -p /opt/apps
+sudo mv Postman /opt/apps
+sudo ln -s /opt/apps/Postman/Postman /usr/local/bin/postman
+touch postman.desktop
+echo "Create new Entry"
+echo "
+[Desktop Entry]
+Type=Application
+Name=Postman
+Icon=/opt/apps/Postman/app/resources/app/assets/icon.png
+Exec="/opt/apps/Postman/Postman"
+Comment=Postman Desktop App
+Categories=Development;Code;" >> postman.desktop
+sudo mv postman.desktop /usr/share/application/postman.desktop
+echo "Done"

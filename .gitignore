@@ -1,3 +1,5 @@
 /node_modules/
 *.deb
 *.zip
+/fonts/
+*.txt
